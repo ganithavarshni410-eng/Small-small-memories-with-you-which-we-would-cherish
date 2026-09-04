@@ -3,13 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Happy 20th Kavii 💗</title>
 
 <style>
 *{
+    box-sizing:border-box;
     margin:0;
     padding:0;
-    box-sizing:border-box;
 }
 
 html,body{
@@ -17,95 +18,87 @@ html,body{
     height:100%;
     overflow:hidden;
     font-family:Georgia,serif;
-    background:#fff5f8;
-    color:#6f3d52;
 }
 
 body{
-    position:relative;
+    background:#fff3f7;
+    color:#713b52;
 }
 
-/* =========================
-   MUSIC
-========================= */
-
-audio{
-    display:none;
-}
-
-/* =========================
-   OPENING
-========================= */
+/* OPENING */
 
 #opening{
     position:fixed;
     inset:0;
-    z-index:1000;
+    z-index:999;
     display:flex;
     flex-direction:column;
     align-items:center;
     justify-content:center;
     text-align:center;
     background:
-      radial-gradient(circle at center,#fff8fb 0%,#f9dce9 45%,#edb8d0 100%);
+    radial-gradient(circle,#fffaff,#ffe5ef 55%,#f5c2d8);
     transition:opacity 1.5s ease;
 }
 
-.open-heart{
-    font-size:105px;
-    color:#e66f9b;
-    animation:heartbeat 1.3s infinite;
-    filter:drop-shadow(0 0 18px rgba(230,111,155,.35));
+.openHeart{
+    font-size:110px;
+    color:#df6f9d;
+    animation:beat 1.2s infinite;
+    text-shadow:0 0 25px #ef9fbd;
 }
 
-@keyframes heartbeat{
+@keyframes beat{
     0%,100%{transform:scale(1)}
-    50%{transform:scale(1.16)}
+    50%{transform:scale(1.15)}
 }
 
-.open-title{
+.openTitle{
     font-size:30px;
-    margin:20px 0 8px;
-    color:#793e57;
-    animation:fadeup 2s ease;
+    margin-top:15px;
 }
 
-.open-subtitle{
+.openText{
+    margin:12px 0 25px;
     font-size:17px;
-    margin-bottom:28px;
-    opacity:.8;
 }
 
-#openButton{
+#openBtn{
     border:none;
-    padding:15px 30px;
     border-radius:40px;
-    background:#dc719d;
-    color:white;
+    padding:15px 30px;
     font-size:17px;
-    box-shadow:0 10px 30px rgba(170,75,115,.25);
+    color:white;
+    background:#d96d99;
+    box-shadow:0 10px 30px #c9829e55;
     cursor:pointer;
 }
 
-#openButton:active{
-    transform:scale(.96);
+/* MAIN */
+
+#main{
+    display:none;
+    width:100%;
+    height:100vh;
+    position:relative;
+    overflow:hidden;
+    background:
+    radial-gradient(circle at 20% 20%,#fff,#ffeaf3 50%,#f8d5e4);
 }
 
-/* =========================
-   FLOATING HEARTS
-========================= */
+/* HEARTS */
 
 .heart{
     position:fixed;
     bottom:-40px;
     pointer-events:none;
-    z-index:10;
+    z-index:20;
     animation:floatHeart linear forwards;
 }
 
 @keyframes floatHeart{
     0%{
-        transform:translateY(0) rotate(0deg);
+        transform:translateY(0) rotate(0);
         opacity:0;
     }
 
@@ -114,24 +107,12 @@ audio{
     }
 
     100%{
-        transform:translateY(-115vh) rotate(35deg);
+        transform:translateY(-115vh) rotate(40deg);
         opacity:0;
     }
 }
 
-/* =========================
-   MAIN
-========================= */
-
-#main{
-    width:100%;
-    height:100vh;
-    display:none;
-    position:relative;
-    overflow:hidden;
-    background:
-      radial-gradient(circle at 20% 20%,#fff,#ffeaf3 45%,#f9d7e6);
-}
+/* SCENES */
 
 .scene{
     position:absolute;
@@ -146,207 +127,174 @@ audio{
 
 .scene.active{
     display:flex;
-    animation:sceneIn 1.3s ease;
+    animation:sceneIn 1s ease;
 }
 
 @keyframes sceneIn{
     from{
         opacity:0;
-        transform:scale(.96) translateY(20px);
+        transform:translateY(25px) scale(.97);
     }
+
     to{
         opacity:1;
-        transform:scale(1) translateY(0);
+        transform:translateY(0) scale(1);
     }
 }
 
-.scene h1{
-    font-size:42px;
-    margin-bottom:18px;
+/* 20 */
+
+.twenty{
+    font-size:150px;
+    font-weight:bold;
+    background:linear-gradient(135deg,#d85f91,#f3a4c3);
+    -webkit-background-clip:text;
+    color:transparent;
+    animation:beat 1.5s infinite;
 }
 
-.scene p{
-    max-width:650px;
-    font-size:19px;
-    line-height:1.7;
+.twentyText{
+    font-size:22px;
+    margin-top:15px;
 }
 
-/* =========================
-   MESSAGE CARDS
-========================= */
+/* MESSAGE */
 
-.message-card{
-    max-width:650px;
+.card{
     width:92%;
-    padding:28px 24px;
+    max-width:650px;
+    max-height:82vh;
+    overflow:auto;
+    padding:28px 23px;
     border-radius:25px;
-    background:rgba(255,255,255,.72);
-    box-shadow:0 15px 50px rgba(120,50,80,.12);
-    backdrop-filter:blur(10px);
-    border:1px solid rgba(255,255,255,.8);
+    background:#ffffffbb;
+    backdrop-filter:blur(12px);
+    box-shadow:0 15px 45px #79435a22;
+    border:1px solid white;
 }
 
-.message-card .emoji{
-    font-size:35px;
-    margin-bottom:12px;
+.cardEmoji{
+    font-size:38px;
+    margin-bottom:10px;
 }
 
-.message-card h2{
-    font-size:25px;
-    margin-bottom:15px;
+.card h2{
+    font-size:26px;
+    margin-bottom:16px;
 }
 
-.message-card p{
+.card p{
     font-size:17px;
     line-height:1.65;
     white-space:pre-line;
 }
 
-.next{
-    margin-top:20px;
-    border:none;
-    background:#d96d99;
-    color:white;
-    padding:11px 22px;
-    border-radius:25px;
-    font-size:15px;
-}
+/* PHOTOS */
 
-/* =========================
-   PHOTO
-========================= */
-
-.photo-frame{
+.photoFrame{
     background:white;
     padding:10px 10px 35px;
-    box-shadow:0 15px 40px rgba(80,40,60,.2);
+    max-width:88vw;
+    max-height:75vh;
+    box-shadow:0 15px 40px #57394a30;
     transform:rotate(-3deg);
-    max-width:85vw;
-    max-height:65vh;
 }
 
-.photo-frame img{
+.photoFrame img{
     display:block;
     max-width:100%;
-    max-height:55vh;
+    max-height:62vh;
     object-fit:contain;
 }
 
-.photo-caption{
-    margin-top:16px;
+.caption{
+    margin-top:17px;
     font-size:19px;
 }
 
-/* =========================
-   VIDEO
-========================= */
+/* VIDEO */
 
-.video-box{
+.videoBox{
     width:92%;
     max-width:700px;
+    padding:9px;
     background:white;
-    padding:10px;
     border-radius:20px;
-    box-shadow:0 15px 45px rgba(80,40,60,.18);
+    box-shadow:0 15px 40px #57394a30;
 }
 
-.video-box video{
+.videoBox video{
     width:100%;
     max-height:65vh;
-    border-radius:13px;
     display:block;
+    border-radius:13px;
 }
 
-/* =========================
-   20
-========================= */
+/* FINAL */
 
-.big20{
-    font-size:150px;
-    font-weight:bold;
-    line-height:1;
-    background:linear-gradient(135deg,#d65c91,#f19aba);
-    -webkit-background-clip:text;
-    color:transparent;
-    animation:heartbeat 1.5s infinite;
-}
-
-.twenty-text{
-    font-size:22px;
-    margin-top:15px;
-}
-
-/* =========================
-   FINAL
-========================= */
-
-.final-heart{
+.finalHeart{
     font-size:90px;
-    animation:heartbeat 1.3s infinite;
+    animation:beat 1.3s infinite;
 }
 
-.final-title{
-    font-size:43px;
+.finalTitle{
+    font-size:42px;
     margin:15px 0;
 }
 
 .names{
+    margin-top:20px;
     font-size:17px;
     line-height:2;
-    margin-top:15px;
 }
 
-/* =========================
-   CONFETTI
-========================= */
+/* CONFETTI */
 
 .confetti{
     position:fixed;
     top:-20px;
     width:8px;
     height:14px;
-    z-index:200;
-    animation:confettiFall linear forwards;
+    z-index:500;
+    animation:fall linear forwards;
 }
 
-@keyframes confettiFall{
+@keyframes fall{
     to{
         transform:translateY(110vh) rotate(720deg);
     }
 }
 
-/* =========================
-   MOBILE
-========================= */
+/* MOBILE */
 
 @media(max-width:600px){
 
-    .open-title{
+    .openTitle{
         font-size:25px;
     }
 
-    .scene h1{
-        font-size:32px;
+    .twenty{
+        font-size:115px;
     }
 
-    .scene p{
-        font-size:16px;
+    .twentyText{
+        font-size:18px;
     }
 
-    .message-card{
-        padding:22px 18px;
+    .card{
+        padding:22px 17px;
     }
 
-    .message-card p{
+    .card h2{
+        font-size:22px;
+    }
+
+    .card p{
         font-size:15px;
     }
 
-    .big20{
-        font-size:120px;
-    }
-
-    .final-title{
-        font-size:32px;
+    .finalTitle{
+        font-size:31px;
     }
 }
 </style>
@@ -354,65 +302,59 @@ audio{
 
 <body>
 
-<!-- =================================
-     SONG
-================================= -->
+<!-- MUSIC -->
 
 <audio id="song" preload="auto">
-    <source src="Un Kanne Aayiram (Kulam Live version) - MassTamilan.mp3" type="audio/mpeg">
+<source src="Un Kanne Aayiram (Kulam Live version) - MassTamilan.mp3" type="audio/mpeg">
 </audio>
 
 
-<!-- =================================
-     OPENING
-================================= -->
+<!-- OPENING -->
 
 <div id="opening">
 
-    <div class="open-heart">♡</div>
+<div class="openHeart">♡</div>
 
-    <div class="open-title">
-        Hey Kavii... 🪽
-    </div>
+<div class="openTitle">
+Hey Kaviiii 🩷🪽
+</div>
 
-    <div class="open-subtitle">
-        We made a little something for you 💌
-    </div>
+<div class="openText">
+A little surprise from all of us... 💌
+</div>
 
-    <button id="openButton">
-        Open your surprise 🎁
-    </button>
+<button id="openBtn">
+Open your surprise 🎁
+</button>
 
 </div>
 
 
-<!-- =================================
-     MAIN
-================================= -->
+<!-- MAIN -->
 
 <div id="main">
 
 
-<!-- SCENE 1 -->
+<!-- 20 -->
 
-<section class="scene" id="scene1">
+<section class="scene">
 
-    <div class="big20">20</div>
+<div class="twenty">20</div>
 
-    <p class="twenty-text">
-        Twenty looks pretty cute on you, Kavii 🥹💗
-    </p>
+<div class="twentyText">
+Happy 20th, Kavii 🥹🎂💗
+</div>
 
 </section>
 
 
 <!-- DIVYA -->
 
-<section class="scene" id="scene2">
+<section class="scene">
 
-<div class="message-card">
+<div class="card">
 
-<div class="emoji">🏠💗</div>
+<div class="cardEmoji">🏠💗</div>
 
 <h2>From Divya 🫶🏻</h2>
 
@@ -423,11 +365,11 @@ Many fightings, many laughter, many memories in one year is I am very lucky to h
 
 Our late night group studies, gossips, crying together always makes us remember each other. 😍
 
-Let's be healthy always and finish this degree together ✨🥲
+Let's be healthy always and finish this degree together✨🥲
 
 At last I will not delete ur number after graduation 🎗️ I promise..
 
-Love u Kaavii 😘❤️
+Love u Kaavii 😘 ❤️
 </p>
 
 </div>
@@ -435,30 +377,13 @@ Love u Kaavii 😘❤️
 </section>
 
 
-<!-- PHOTO SCENE -->
-
-<section class="scene" id="scene3">
-
-<div class="photo-frame">
-
-<img src="IMG-20260904-WA0041.jpg">
-
-</div>
-
-<div class="photo-caption">
-One year... so many memories already 🥹💗
-</div>
-
-</section>
-
-
 <!-- KARTHI -->
 
-<section class="scene" id="scene4">
+<section class="scene">
 
-<div class="message-card">
+<div class="card">
 
-<div class="emoji">😂🫂</div>
+<div class="cardEmoji">😂🫂</div>
 
 <h2>From Karthiii ❤️</h2>
 
@@ -467,15 +392,15 @@ Happiesttt birthday, Kaavii 😘❤️
 
 Maybe sometimes we fight, but it never even lasts more than an hour 😅🫂
 
-Truly, I’m so happy to have gotten a roomie like you, who keeps evolving with me 💗
+Truly, I’m so happy to have gotten a roomie like you, who keeps evolving with me💗
 
 Here’s to more fights, more laughs, more rants, and lots of memories together! 🫶🏻
 
-On your birthday a kind wish:
+On your birthday a kind wish :
 
-apa apa room vitu enga kuda velila vaa 🙏😌
+apa apa room vitu enga kuda velila vaa🙏😌
 
-Loveee you 😘❤️
+Loveee you😘❤
 </p>
 
 </div>
@@ -485,16 +410,16 @@ Loveee you 😘❤️
 
 <!-- AKHALYA -->
 
-<section class="scene" id="scene5">
+<section class="scene">
 
-<div class="message-card">
+<div class="card">
 
-<div class="emoji">🛵❤️</div>
+<div class="cardEmoji">🛵❤️</div>
 
 <h2>From Akhalya 🫶🏻</h2>
 
 <p>
-Happy birthdayyy Kaviii ❤️
+Happy birthdayyy kaviii❤️
 
 Wishing you lots of happiness, good health and all the best for everything ahead!
 
@@ -502,7 +427,7 @@ Hope you have the best year and get отлична from every teachers.
 
 Also, that scooter ride we had was honestly such a good time 😂
 
-I don't think I've ever had that kind of memory with any of my other friends, definitely one I'll always remember.
+I don’t think I’ve ever had that kind of memory with any of my other friends, definitely one I’ll always remember.
 
 Have an amazing birthdayyy! 🥳❤️
 </p>
@@ -514,24 +439,24 @@ Have an amazing birthdayyy! 🥳❤️
 
 <!-- SUN -->
 
-<section class="scene" id="scene6">
+<section class="scene">
 
-<div class="message-card">
+<div class="card">
 
-<div class="emoji">🪽🩷</div>
+<div class="cardEmoji">🩷🪽</div>
 
 <h2>From Sun ✨</h2>
 
 <p>
-Hey Kaviiii 🩷🪽...
+Hey Kaviiii🩷🪽...
 
-Happy Birthday to Bold girl ✨
+Happy Birthday to Bold girl✨
 
-You're my great Partner and my good friend 🫶🏻🫂
+You're my great Partner and my good friend🫶🏻🫂..
 
-U're really my companion in class and it's way to all 👥...
+U're really my companion in class and it's way to all👥...
 
-Let's fill nxt upcoming yrs with full chaos, fun and create moments with memories 🤞🏻💫...∞
+Let's fill nxt upcoming yrs with full chaos,fun and create moments with memories🤞🏻💫...∞
 </p>
 
 </div>
@@ -541,13 +466,13 @@ Let's fill nxt upcoming yrs with full chaos, fun and create moments with memorie
 
 <!-- YOUR MESSAGE -->
 
-<section class="scene" id="scene7">
+<section class="scene">
 
-<div class="message-card">
+<div class="card">
 
-<div class="emoji">💞</div>
+<div class="cardEmoji">💞</div>
 
-<h2>One more message...</h2>
+<h2>From Ganitha 💗</h2>
 
 <p>
 Happy birthday Kavii! ❤️
@@ -564,254 +489,21 @@ Love uuu Kavii, stay happy and keep smiling always ❤️
 </section>
 
 
-<!-- PHOTO 2 -->
-
-<section class="scene" id="scene8">
-
-<div class="photo-frame">
-
-<img src="IMG-20260309-WA0007.jpg">
-
-</div>
-
-<div class="photo-caption">
-And the memories keep coming... 🥹✨
-</div>
-
-</section>
-
-
-<!-- VIDEO 1 -->
-
-<section class="scene" id="scene9">
-
-<h1>Okay... now for the evidence 👀</h1>
-
-<div class="video-box">
-
-<video controls playsinline>
-    <source src="VID-20260904-WA0037.mp4" type="video/mp4">
-</video>
-
-</div>
-
-</section>
-
-
-<!-- PHOTO COLLECTION -->
-
-<section class="scene" id="scene10">
-
-<div class="photo-frame">
-
-<img src="IMG-20260309-WA0009.jpg">
-
-</div>
-
-<div class="photo-caption">
-Pure chaos. Zero regrets. 😂❤️
-</div>
-
-</section>
-
-
-<section class="scene" id="scene11">
-
-<div class="photo-frame">
-
-<img src="IMG-20260309-WA0003.jpg">
-
-</div>
-
-</section>
-
-
-<section class="scene" id="scene12">
-
-<div class="photo-frame">
-
-<img src="IMG-20260309-WA0006.jpg">
-
-</div>
-
-</section>
-
-
-<section class="scene" id="scene13">
-
-<div class="photo-frame">
-
-<img src="IMG-20260404-WA0037.jpg">
-
-</div>
-
-</section>
-
-
-<section class="scene" id="scene14">
-
-<div class="photo-frame">
-
-<img src="IMG-20251203-WA0058.jpg">
-
-</div>
-
-</section>
-
-
-<!-- VIDEO 2 -->
-
-<section class="scene" id="scene15">
-
-<h1>More memories incoming... 🎥💗</h1>
-
-<div class="video-box">
-
-<video controls playsinline>
-    <source src="VID-20251118-WA0002.mp4" type="video/mp4">
-</video>
-
-</div>
-
-</section>
-
-
-<!-- MORE PHOTOS -->
-
-<section class="scene" id="scene16">
-
-<div class="photo-frame">
-
-<img src="IMG-20260904-WA0043.jpg">
-
-</div>
-
-</section>
-
-
-<section class="scene" id="scene17">
-
-<div class="photo-frame">
-
-<img src="IMG-20260904-WA0044.jpg">
-
-</div>
-
-</section>
-
-
-<section class="scene" id="scene18">
-
-<div class="photo-frame">
-
-<img src="IMG-20260308-WA0067.jpg">
-
-</div>
-
-</section>
-
-
-<section class="scene" id="scene19">
-
-<div class="photo-frame">
-
-<img src="IMG-20260904-WA0045.jpg">
-
-</div>
-
-</section>
-
-
-<section class="scene" id="scene20">
-
-<div class="photo-frame">
-
-<img src="IMG-20260904-WA0046.jpg">
-
-</div>
-
-</section>
-
-
-<section class="scene" id="scene21">
-
-<div class="photo-frame">
-
-<img src="IMG-20260904-WA0048.jpg">
-
-</div>
-
-</section>
-
-
-<section class="scene" id="scene22">
-
-<div class="photo-frame">
-
-<img src="IMG-20260730-WA0011.jpg">
-
-</div>
-
-</section>
-
-
-<section class="scene" id="scene23">
-
-<div class="photo-frame">
-
-<img src="IMG-20260509-WA0442.jpg">
-
-</div>
-
-</section>
-
-
-<section class="scene" id="scene24">
-
-<div class="photo-frame">
-
-<img src="IMG-20260509-WA0275.jpg">
-
-</div>
-
-</section>
-
-
-<section class="scene" id="scene25">
-
-<div class="photo-frame">
-
-<img src="IMG-20260509-WA0452.jpg">
-
-</div>
-
-</section>
-
-
-<section class="scene" id="scene26">
-
-<div class="photo-frame">
-
-<img src="IMG-20260904-WA0050.jpg">
-
-</div>
-
-</section>
 <!-- DHARANI -->
 
 <section class="scene">
 
-<div class="message-card">
+<div class="card">
 
-<div class="emoji">🤍🪽</div>
+<div class="cardEmoji">🤍🪽</div>
 
 <h2>From Dharani 🤍</h2>
 
 <p>
 Happy birthday to my etern 🤍🤍🤍🤍
 
-Happy Birthday pattu 🤍🤍🤍🤍
-You literally mean the world to me. 🫶🏻
+Happy Birthday pattu🤍🤍🤍🤍
+you literally mean the world to me.
 </p>
 
 </div>
@@ -819,69 +511,314 @@ You literally mean the world to me. 🫶🏻
 </section>
 
 
-<!-- DHARANI'S MEMORIES -->
+<!-- PHOTO 1 -->
 
 <section class="scene">
-<div class="photo-frame">
+
+<div class="photoFrame">
+<img src="IMG-20260904-WA0041.jpg">
+</div>
+
+<div class="caption">
+One year, so many memories already 🥹💗
+</div>
+
+</section>
+
+
+<!-- PHOTO 2 -->
+
+<section class="scene">
+
+<div class="photoFrame">
+<img src="IMG-20260309-WA0007.jpg">
+</div>
+
+</section>
+
+
+<!-- PHOTO 3 -->
+
+<section class="scene">
+
+<div class="photoFrame">
+<img src="IMG-20260309-WA0009.jpg">
+</div>
+
+<div class="caption">
+Pure chaos 😂❤️
+</div>
+
+</section>
+
+
+<!-- PHOTO 4 -->
+
+<section class="scene">
+
+<div class="photoFrame">
+<img src="IMG-20260309-WA0003.jpg">
+</div>
+
+</section>
+
+
+<!-- PHOTO 5 -->
+
+<section class="scene">
+
+<div class="photoFrame">
+<img src="IMG-20260309-WA0006.jpg">
+</div>
+
+</section>
+
+
+<!-- PHOTO 6 -->
+
+<section class="scene">
+
+<div class="photoFrame">
+<img src="IMG-20260404-WA0037.jpg">
+</div>
+
+</section>
+
+
+<!-- PHOTO 7 -->
+
+<section class="scene">
+
+<div class="photoFrame">
+<img src="IMG-20251203-WA0058.jpg">
+</div>
+
+</section>
+
+
+<!-- VIDEO -->
+
+<section class="scene">
+
+<div class="card">
+
+<h2>Okay... we have evidence 👀🎥</h2>
+
+</div>
+
+<div class="videoBox">
+
+<video controls playsinline>
+<source src="VID-20260904-WA0037.mp4" type="video/mp4">
+</video>
+
+</div>
+
+</section>
+
+
+<!-- DHARANI PHOTOS -->
+
+<section class="scene">
+
+<div class="photoFrame">
 <img src="IMG-20260904-WA0058.jpg">
 </div>
+
 </section>
 
+
 <section class="scene">
-<div class="photo-frame">
+
+<div class="photoFrame">
 <img src="IMG-20260904-WA0054.jpg">
 </div>
+
 </section>
 
+
 <section class="scene">
-<div class="photo-frame">
+
+<div class="photoFrame">
 <img src="IMG-20260904-WA0057.jpg">
 </div>
+
 </section>
 
+
 <section class="scene">
-<div class="photo-frame">
+
+<div class="photoFrame">
 <img src="IMG-20260904-WA0055.jpg">
 </div>
+
 </section>
 
+
 <section class="scene">
-<div class="photo-frame">
+
+<div class="photoFrame">
 <img src="IMG-20260904-WA0056.jpg">
 </div>
+
 </section>
 
+
 <section class="scene">
-<div class="photo-frame">
+
+<div class="photoFrame">
 <img src="IMG-20260904-WA0053.jpg">
 </div>
+
 </section>
+
 
 <section class="scene">
-<div class="photo-frame">
+
+<div class="photoFrame">
 <img src="IMG-20260904-WA0052.jpg">
 </div>
+
+</section>
+
+
+<!-- MORE PHOTOS -->
+
+<section class="scene">
+
+<div class="photoFrame">
+<img src="IMG-20260904-WA0043.jpg">
+</div>
+
+</section>
+
+
+<section class="scene">
+
+<div class="photoFrame">
+<img src="IMG-20260904-WA0044.jpg">
+</div>
+
+</section>
+
+
+<section class="scene">
+
+<div class="photoFrame">
+<img src="IMG-20260308-WA0067.jpg">
+</div>
+
+</section>
+
+
+<section class="scene">
+
+<div class="photoFrame">
+<img src="IMG-20260904-WA0045.jpg">
+</div>
+
+</section>
+
+
+<section class="scene">
+
+<div class="photoFrame">
+<img src="IMG-20260904-WA0046.jpg">
+</div>
+
+</section>
+
+
+<section class="scene">
+
+<div class="photoFrame">
+<img src="IMG-20260904-WA0048.jpg">
+</div>
+
+</section>
+
+
+<section class="scene">
+
+<div class="photoFrame">
+<img src="IMG-20260730-WA0011.jpg">
+</div>
+
+</section>
+
+
+<section class="scene">
+
+<div class="photoFrame">
+<img src="IMG-20260509-WA0442.jpg">
+</div>
+
+</section>
+
+
+<section class="scene">
+
+<div class="photoFrame">
+<img src="IMG-20260509-WA0275.jpg">
+</div>
+
+</section>
+
+
+<section class="scene">
+
+<div class="photoFrame">
+<img src="IMG-20260509-WA0452.jpg">
+</div>
+
+</section>
+
+
+<section class="scene">
+
+<div class="photoFrame">
+<img src="IMG-20260904-WA0050.jpg">
+</div>
+
+</section>
+
+
+<!-- SECOND VIDEO -->
+
+<section class="scene">
+
+<div class="card">
+
+<h2>And there's more... 🥹🎥</h2>
+
+</div>
+
+<div class="videoBox">
+
+<video controls playsinline>
+<source src="VID-20251118-WA0002.mp4" type="video/mp4">
+</video>
+
+</div>
+
 </section>
 
 
 <!-- FINAL -->
 
-<section class="scene" id="scene27">
+<section class="scene">
 
+<div class="finalHeart">
+♥
+</div>
 
-<!-- FINAL -->
-
-<section class="scene" id="scene27">
-
-<div class="final-heart">♥</div>
-
-<div class="final-title">
-Happy 20th Birthday, Kavii! 🎂
+<div class="finalTitle">
+Happy 20th Birthday, Kavii! 🎂💗
 </div>
 
 <p>
 From all of us ❤️
-<br>
+<br><br>
 Here's to more laughs, more chaos,
 more memories and many more years together. 🫶🏻
 </p>
@@ -898,13 +835,9 @@ Divya • Karthi • Akhalya • Sun • Ganitha • Dharani
 
 <script>
 
-/* =================================
-   ELEMENTS
-================================= */
-
 const opening = document.getElementById("opening");
 const main = document.getElementById("main");
-const button = document.getElementById("openButton");
+const button = document.getElementById("openBtn");
 const song = document.getElementById("song");
 
 const scenes = document.querySelectorAll(".scene");
@@ -912,194 +845,155 @@ const scenes = document.querySelectorAll(".scene");
 let currentScene = 0;
 
 
-/* =================================
-   OPEN WEBSITE
-================================= */
+/* OPEN */
 
-button.addEventListener("click", async () => {
+button.addEventListener("click",async function(){
 
-    /*
-       1 minute 19 seconds = 79 seconds
-    */
+    /* 1:19 = 79 seconds */
 
     song.currentTime = 79;
 
     try{
         await song.play();
-    }catch(error){
-        console.log("Audio could not start:",error);
+    }catch(e){
+        console.log(e);
     }
 
-    opening.style.opacity = "0";
+    opening.style.opacity="0";
 
-    setTimeout(() => {
+    setTimeout(function(){
 
-        opening.style.display = "none";
-        main.style.display = "block";
+        opening.style.display="none";
+        main.style.display="block";
 
-        showScene(0);
+        showScene();
 
     },1500);
 
     startHearts();
+
 });
 
 
-/* =================================
-   SCENE CONTROL
-================================= */
+/* SHOW SCENE */
 
-function showScene(number){
+function showScene(){
 
-    scenes.forEach(scene => {
+    scenes.forEach(function(scene){
         scene.classList.remove("active");
     });
 
-    if(number < scenes.length){
+    if(currentScene < scenes.length){
 
-        scenes[number].classList.add("active");
+        scenes[currentScene].classList.add("active");
 
     }else{
 
-        createConfetti();
+        confetti();
 
     }
+
 }
 
 
-/* =================================
-   MOVE THROUGH SCENES
-================================ */
+/* MOVE FORWARD */
 
-function nextScene(){
+main.addEventListener("click",function(e){
+
+    /*
+       Don't change scene when the user
+       is touching video controls.
+    */
+
+    if(e.target.closest("video")){
+        return;
+    }
 
     currentScene++;
 
     if(currentScene < scenes.length){
 
-        showScene(currentScene);
+        showScene();
 
     }else{
 
-        createConfetti();
+        confetti();
 
     }
-}
-
-
-/*
-   Tap the screen to move forward.
-
-   Videos have controls, so tapping
-   directly on the video won't change
-   the scene.
-*/
-
-main.addEventListener("click",(event)=>{
-
-    if(event.target.closest("video")){
-        return;
-    }
-
-    if(event.target.closest("button")){
-        return;
-    }
-
-    nextScene();
 
 });
 
 
-/* =================================
-   AUTOMATIC FIRST SCENE
-================================ */
+/* HEARTS */
 
 function startHearts(){
 
-    setInterval(()=>{
+    setInterval(function(){
 
-        createHeart();
+        const heart=document.createElement("div");
+
+        heart.className="heart";
+
+        const types=[
+            "♥",
+            "♡",
+            "💗",
+            "💖",
+            "💕",
+            "🩷",
+            "🪽"
+        ];
+
+        heart.innerHTML=
+        types[Math.floor(Math.random()*types.length)];
+
+        heart.style.left=
+        Math.random()*100+"vw";
+
+        heart.style.fontSize=
+        (15+Math.random()*25)+"px";
+
+        heart.style.animationDuration=
+        (5+Math.random()*5)+"s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(function(){
+            heart.remove();
+        },10000);
 
     },350);
 
 }
 
 
-/* =================================
-   FLOATING HEART
-================================ */
+/* CONFETTI */
 
-function createHeart(){
-
-    const heart = document.createElement("div");
-
-    heart.className = "heart";
-
-    const choices = [
-        "♥",
-        "♡",
-        "💗",
-        "💖",
-        "💕",
-        "🩷",
-        "🪽"
-    ];
-
-    heart.innerHTML =
-        choices[Math.floor(Math.random()*choices.length)];
-
-    heart.style.left =
-        Math.random()*100 + "vw";
-
-    heart.style.fontSize =
-        (15 + Math.random()*25) + "px";
-
-    heart.style.animationDuration =
-        (5 + Math.random()*5) + "s";
-
-    document.body.appendChild(heart);
-
-    setTimeout(()=>{
-        heart.remove();
-    },10000);
-
-}
-
-
-/* =================================
-   CONFETTI
-================================= */
-
-function createConfetti(){
+function confetti(){
 
     for(let i=0;i<100;i++){
 
-        const piece =
-            document.createElement("div");
+        const piece=document.createElement("div");
 
-        piece.className = "confetti";
+        piece.className="confetti";
 
-        piece.style.left =
-            Math.random()*100 + "vw";
+        piece.style.left=
+        Math.random()*100+"vw";
 
-        piece.style.animationDuration =
-            (3 + Math.random()*4) + "s";
+        piece.style.animationDuration=
+        (3+Math.random()*4)+"s";
 
-        piece.style.background =
-            [
-                "#e875a4",
-                "#f3a8c5",
-                "#d65d91",
-                "#f8c6da",
-                "#ffffff"
-            ][Math.floor(Math.random()*5)];
-
-        piece.style.transform =
-            `rotate(${Math.random()*360}deg)`;
+        piece.style.background=[
+            "#e875a4",
+            "#f3a8c5",
+            "#d65d91",
+            "#f8c6da",
+            "#ffffff"
+        ][Math.floor(Math.random()*5)];
 
         document.body.appendChild(piece);
 
-        setTimeout(()=>{
+        setTimeout(function(){
             piece.remove();
         },8000);
 
@@ -1110,4 +1004,7 @@ function createConfetti(){
 </script>
 
 </body>
-  </html>
+</html>    
+
+   
+                
